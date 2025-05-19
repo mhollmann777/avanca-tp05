@@ -53,9 +53,30 @@
     <p>Intelli Voice ist die Sprachaissistenz von IntelliWerk. Dieser Prototyp hilft bei Problemen an Bio-LNG-Zapfsäulen und freut sich über Feedback!</p>
   </main>
 
-  <footer>
-    <intellivoice-conv agent-id="hsWaxFulrF8B0rV2FdlA"></intellivoice-conv>
-    <script src="https://intelliwerk.eu/go/alternoil" async type="text/javascript"></script>
-  </footer>
+
+
+ <footer id="ai-footer"></footer>
+
+<script>
+  
+  const tagName = atob("ZWxldmVubGFicy1jb252YWk=");
+  const agentId = atob("aHNXYXhGdWxyRjhCMHJWTkZkbEE=");
+  const scriptSrc = atob("aHR0cHM6Ly9lbGV2ZW5sYWJzLmlvL2NvbnZhaS13aWRnZXQvaW5kZXguanM=");
+
+  // Widget-Element erzeugen
+  const widget = document.createElement(tagName);
+  widget.setAttribute("agent-id", agentId);
+
+  // An Footer anhängen
+  document.getElementById("ai-footer").appendChild(widget);
+
+  // Script dynamisch einfügen
+  const script = document.createElement("script");
+  script.src = scriptSrc;
+  script.async = true;
+  script.type = "text/javascript";
+  document.getElementById("ai-footer").appendChild(script);
+</script>
+
 </body>
 </html>
