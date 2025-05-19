@@ -58,24 +58,21 @@
 <footer id="ai-footer"></footer>
 
 <script>
-  const tagName = atob("ZWxldmVubGFicy1jb252YWk="); // elevenlabs-convai
-  const agentId = atob("aHNXYXhGdWxyRjhCMHJWTkZkbEE="); // hsWaxFulrF8B0rV2FdlA
-  const scriptSrc = atob("aHR0cHM6Ly9lbGV2ZW5sYWJzLmlvL2NvbnZhaS13aWRnZXQvaW5kZXguanM="); // https://elevenlabs.io/convai-widget/index.js
+  const widgetHTML = `<${atob("ZWxldmVubGFicy1jb252YWk=")} agent-id="${atob("aHNXYXhGdWxyRjhCMHJWTkZkbEE=")}"></${atob("ZWxldmVubGFicy1jb252YWk=")}>`;
+  const scriptSrc = atob("aHR0cHM6Ly9lbGV2ZW5sYWJzLmlvL2NvbnZhaS13aWRnZXQvaW5kZXguanM=");
 
-  // 1. Script dynamisch laden
+  // Script erzeugen
   const script = document.createElement("script");
   script.src = scriptSrc;
   script.async = true;
   script.type = "text/javascript";
 
-  // 2. Nach dem Laden das Widget-Tag einfügen
-  script.onload = function() {
-    const widget = document.createElement(tagName);
-    widget.setAttribute("agent-id", agentId);
-    document.getElementById("ai-footer").appendChild(widget);
+  // Nach dem Laden Script-Tag + HTML gleichzeitig einsetzen
+  script.onload = function () {
+    document.getElementById("ai-footer").innerHTML = widgetHTML;
   };
 
-  // Script ins Dokument einfügen
+  // Script ins <head> einfügen
   document.head.appendChild(script);
 </script>
 
